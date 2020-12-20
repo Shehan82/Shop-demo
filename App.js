@@ -6,8 +6,8 @@ import Todo from './Todo';
 export default function App() {
   return (
     <SafeAreaView  style={styles.container}>
-          <Text style={styles.txt}>sdflij</Text>
-          <Todo/>
+          <Text style={styles.txt}>Shehan</Text>
+          <Todo name={"shehan"}/>
     </SafeAreaView>
     
   );

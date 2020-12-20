@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-const Todo = () => {
+const Todo = (props) => {
     return (
         <View>
-            <Text>hello i am todo.js!</Text>
+            <Text>hello i am {props.name}</Text>
         </View>
     )
 }
