@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 const Todo = () => {
     return (
         <View>
-            <Text></Text>
+            <Text>hello i am todo.js!</Text>
         </View>
     )
 }
