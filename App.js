@@ -6,7 +6,7 @@ import Todo from './Todo';
 export default function App() {
 
   const [input, setInput] = useState("");
-  const [todos, setTodos] = useState(["sheahn"]);
+  const [todos, setTodos] = useState(["shehen sandeepa"]);
 
   const addToDo = ()=>{
     setTodos([input, ...todos]);
@@ -19,24 +19,42 @@ export default function App() {
           <Text style={styles.txt}>Shehan</Text>
           {/* <Todo name={"shehan"}/> */}
           <View>
-            <Text>Input your TODO here!</Text>
+            <Text>Add your todo here!</Text>
             <TextInput
              
               style={styles.todoInput}
-              onChange={(e) => {setInput(e.target.value)}}
+              onChangeText={text=>setInput(text)} 
             
             />
 
-            
+            <TouchableOpacity onPress={addToDo} style={{
+              backgroundColor:"blue",
+              width:100,
+              marginLeft:'auto',
+              marginRight:'auto',
+              alignItems:'center',
+              marginTop:20,
+              height:30,
+              borderRadius:10
+              
+              }}>
+              <Text style={{
+                color:'white',
+                marginTop:'auto',
+                marginBottom:'auto',
+                fontSize:16,
+                fontWeight:'800'
+                }}>Add Todo</Text>
+            </TouchableOpacity>
 
-            <Button 
+            {/* <Button 
             title="Add TODO"
-            onPress={addToDo}
-            />
+            
+            /> */}
           </View>
 
           {todos.map(todo =>(
-            <Text >{todo}</Text>
+            <Text key={todo} style={{color:'red'}} >{todo}</Text>
           ))}
 
 
