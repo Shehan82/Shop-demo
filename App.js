@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
   Switch,
   Image,
+  Alert,
 } from "react-native";
 import Todo from "./Todo";
 
@@ -56,7 +57,11 @@ export default function App() {
       />
       <TouchableOpacity
         onPress={() => {
-          alert("image pressed!");
+          Alert.alert("shehan82 title", "React native is fun!", [
+            { text: "yes" },
+            { text: "no" },
+            { text: "wow" },
+          ]);
         }}
       >
         <Image
