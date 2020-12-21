@@ -18,7 +18,7 @@ export default function App() {
 
   return (
     <SafeAreaView  >
-      <View >
+      <View style={styles.container} >
           <Text style={styles.txt}>Shehan</Text>
           
           <View>
@@ -83,5 +83,10 @@ const styles = StyleSheet.create({
     fontSize:16,
     fontWeight:'800'
 
+  },
+  container:{
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center',
   }
 });
