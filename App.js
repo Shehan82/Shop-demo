@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, SafeAreaView , TextInput, Button, TouchableOpacity, Switch} from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView , TextInput, Button, TouchableOpacity, Switch, Image} from 'react-native';
 import Todo from './Todo';
 
 export default function App() {
@@ -17,8 +17,8 @@ export default function App() {
 
 
   return (
-    <SafeAreaView  >
-      <View style={styles.container} >
+    <SafeAreaView  style={styles.container} >
+     
           <Text style={styles.txt}>Shehan</Text>
           
           <View>
@@ -47,8 +47,8 @@ export default function App() {
         value={isEnabled}
       />
           
-
-      </View>
+     <Image style={styles.tinyLogo} source={require('./assets/sfd.png')}/>
+     
     </SafeAreaView>
     
   );
@@ -65,6 +65,10 @@ const styles = StyleSheet.create({
     width:200,
     alignItems:'center'
     
+  },
+  tinyLogo: {
+    width: 500,
+    height: 500,
   },
   buttonStyle:{
     backgroundColor:"blue",
@@ -88,5 +92,6 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent:'center',
     alignItems:'center',
+    backgroundColor:"#fff"
   }
 });
