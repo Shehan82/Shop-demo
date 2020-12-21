@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, SafeAreaView , TextInput, Button, TouchableOpacity, Switch, Image} from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView ,TouchableWithoutFeedback ,TextInput, Button, TouchableOpacity, Switch, Image} from 'react-native';
 import Todo from './Todo';
 
 export default function App() {
@@ -46,9 +46,14 @@ export default function App() {
         onValueChange={toggleSwitch}
         value={isEnabled}
       />
-          
-     <Image style={styles.tinyLogo} source={require('./assets/sfd.png')}/>
-     
+      <TouchableOpacity onPress={()=>{console.log("imagePressed!")}}>   
+     <Image
+     blurRadius={4}
+     style={styles.tinyLogo} 
+     source={require('./assets/sfd.png')}
+     />
+     </TouchableOpacity> 
+
     </SafeAreaView>
     
   );
@@ -67,8 +72,8 @@ const styles = StyleSheet.create({
     
   },
   tinyLogo: {
-    width: 500,
-    height: 500,
+    width: 200,
+    height: 300,
   },
   buttonStyle:{
     backgroundColor:"blue",
