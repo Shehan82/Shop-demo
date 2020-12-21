@@ -57,11 +57,9 @@ export default function App() {
       />
       <TouchableOpacity
         onPress={() => {
-          Alert.alert("shehan82 title", "React native is fun!", [
-            { text: "yes" },
-            { text: "no" },
-            { text: "wow" },
-          ]);
+          Alert.prompt("shehan82 title", "React native is fun!", (text) => {
+            console.log("text");
+          });
         }}
       >
         <Image
