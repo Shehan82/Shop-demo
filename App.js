@@ -34,16 +34,37 @@ export default function App() {
   console.log(useDeviceOrientation().landscape);
 
   return (
-    <SafeAreaView>
+    <View
+      style={{
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <View
         style={{
           backgroundColor: "blue",
-          height: useDeviceOrientation().landscape ? "100%" : 250,
-          width: "100%",
-          marginTop: Platform.OS === "ios" ? 0 : 25,
+          height: 100,
+          width: 100,
         }}
       ></View>
-    </SafeAreaView>
+      <View
+        style={{
+          backgroundColor: "gold",
+          height: 100,
+          width: 100,
+          marginTop: 20,
+        }}
+      ></View>
+      <View
+        style={{
+          backgroundColor: "tomato",
+          height: 100,
+          width: 100,
+        }}
+      ></View>
+    </View>
   );
 }
 
