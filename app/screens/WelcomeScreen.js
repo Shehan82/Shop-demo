@@ -7,8 +7,13 @@ const WelcomeScreen = () => {
       style={styles.background}
       source={require("../assets/back.jpg")}
     >
-      <Image style={styles.logo} source={require("../assets/logo.png")}></Image>
-      <Text style={styles.txt}>We care always</Text>
+      <View style={styles.logoContainer}>
+        <Image
+          style={styles.logo}
+          source={require("../assets/logo.png")}
+        ></Image>
+        <Text style={styles.txt}>We care always</Text>
+      </View>
       <View style={styles.loginButton} />
       <View style={styles.signUpButton} />
     </ImageBackground>
@@ -36,12 +41,14 @@ const styles = StyleSheet.create({
   logo: {
     width: 150,
     height: 150,
+  },
+  logoContainer: {
     position: "absolute",
     top: 70,
+    borderColor: "red",
+    // borderWidth: 2,
   },
   txt: {
-    position: "absolute",
-    top: 200,
     fontSize: 20,
     fontWeight: "bold",
   },
