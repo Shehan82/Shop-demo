@@ -13,6 +13,7 @@ import {
   Image,
   Alert,
   Dimensions,
+  Platform,
 } from "react-native";
 import Todo from "./Todo";
 
@@ -35,6 +36,7 @@ export default function App() {
           backgroundColor: "blue",
           height: 250,
           width: "100%",
+          marginTop: Platform.OS === "ios" ? 0 : 25,
         }}
       ></View>
     </SafeAreaView>
