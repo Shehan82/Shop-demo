@@ -21,6 +21,7 @@ import {
 } from "@react-native-community/hooks";
 import Todo from "./Todo";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
 
 export default function App() {
   const [input, setInput] = useState("");
@@ -36,7 +37,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <WelcomeScreen />
+      <ViewImageScreen />
     </SafeAreaView>
   );
 }
