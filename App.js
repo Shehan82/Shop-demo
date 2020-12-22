@@ -12,6 +12,7 @@ import {
   Switch,
   Image,
   Alert,
+  Dimensions,
 } from "react-native";
 import Todo from "./Todo";
 
@@ -25,49 +26,17 @@ export default function App() {
 
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  console.log(Dimensions.get("window"));
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.txt}>Shehan</Text>
-
-      <View>
-        <Text>Add your todo here bro!</Text>
-        <TextInput
-          style={styles.todoInput}
-          onChangeText={(text) => setInput(text)}
-        />
-
-        <TouchableOpacity onPress={addToDo} style={styles.buttonStyle}>
-          <Text style={styles.buttonText}>Add Todo</Text>
-        </TouchableOpacity>
-      </View>
-
-      {todos.map((todo) => (
-        <Text key={todo} style={{ color: "red" }}>
-          {todo}
-        </Text>
-      ))}
-
-      <Switch
-        trackColor={{ false: "#767577", true: "#81b0ff" }}
-        thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-        ios_backgroundColor="#3e3e3e"
-        onValueChange={toggleSwitch}
-        value={isEnabled}
-      />
-      <TouchableOpacity
-        onPress={() => {
-          Alert.prompt("shehan82 title", "React native is fun!", (text) => {
-            console.log("text");
-          });
+    <SafeAreaView>
+      <View
+        style={{
+          backgroundColor: "blue",
+          height: 250,
+          width: "100%",
         }}
-      >
-        <Image
-          blurRadius={4}
-          style={styles.tinyLogo}
-          source={require("./assets/sfd.png")}
-        />
-      </TouchableOpacity>
+      ></View>
     </SafeAreaView>
   );
 }
