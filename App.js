@@ -36,9 +36,9 @@ export default function App() {
   console.log(useDeviceOrientation().landscape);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <ViewImageScreen />
-    </SafeAreaView>
+    </View>
   );
 }
 

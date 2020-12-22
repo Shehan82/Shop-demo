@@ -1,12 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
+import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
 
 const ViewImageScreen = () => {
   return (
     <View>
       <View style={styles.iconContainer}>
-        <View style={styles.deleteIcon}></View>
-        <View style={styles.closeIcon}></View>
+        <MaterialCommunityIcons name="delete-circle" size={50} color="black" />
+        <AntDesign name="closecircle" size={40} color="black" />
       </View>
 
       <Image
@@ -40,8 +41,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     justifyContent: "space-between",
-    top: 60,
-    paddingRight: 10,
-    paddingLeft: 10,
+    top: 30,
+    paddingRight: 5,
+    paddingLeft: 5,
+    // borderWidth: 2,
+    // borderColor: "red",
+    alignItems: "center",
   },
 });
