@@ -1,5 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Image,
+  Platform,
+} from "react-native";
 
 const WelcomeScreen = () => {
   return (
