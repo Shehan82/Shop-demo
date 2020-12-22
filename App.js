@@ -15,6 +15,10 @@ import {
   Dimensions,
   Platform,
 } from "react-native";
+import {
+  useDimensions,
+  useDeviceOrientation,
+} from "@react-native-community/hooks";
 import Todo from "./Todo";
 
 export default function App() {
@@ -27,14 +31,14 @@ export default function App() {
 
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
-  console.log(Dimensions.get("window"));
+  console.log(useDeviceOrientation().landscape);
 
   return (
     <SafeAreaView>
       <View
         style={{
           backgroundColor: "blue",
-          height: 250,
+          height: useDeviceOrientation().landscape ? "100%" : 250,
           width: "100%",
           marginTop: Platform.OS === "ios" ? 0 : 25,
         }}
