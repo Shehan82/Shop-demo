@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "tomato",
     width: "90%",
-    borderRadius: 25,
+    borderRadius: 26,
     height: 30,
   },
 });
