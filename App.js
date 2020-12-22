@@ -20,6 +20,7 @@ import {
   useDeviceOrientation,
 } from "@react-native-community/hooks";
 import Todo from "./Todo";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
 
 export default function App() {
   const [input, setInput] = useState("");
@@ -33,39 +34,7 @@ export default function App() {
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   console.log(useDeviceOrientation().landscape);
 
-  return (
-    <View
-      style={{
-        flex: 1,
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <View
-        style={{
-          backgroundColor: "blue",
-          height: 100,
-          width: 100,
-        }}
-      ></View>
-      <View
-        style={{
-          backgroundColor: "gold",
-          height: 100,
-          width: 100,
-          marginTop: 20,
-        }}
-      ></View>
-      <View
-        style={{
-          backgroundColor: "tomato",
-          height: 100,
-          width: 100,
-        }}
-      ></View>
-    </View>
-  );
+  return <WelcomeScreen />;
 }
 
 const styles = StyleSheet.create({
