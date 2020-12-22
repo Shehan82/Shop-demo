@@ -34,7 +34,11 @@ export default function App() {
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   console.log(useDeviceOrientation().landscape);
 
-  return <WelcomeScreen />;
+  return (
+    <SafeAreaView style={styles.container}>
+      <WelcomeScreen />
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -70,8 +74,5 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#fff",
   },
 });
