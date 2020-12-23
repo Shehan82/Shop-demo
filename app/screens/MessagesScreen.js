@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FlatList,
   StyleSheet,
@@ -11,7 +11,7 @@ import Constants from "expo-constants";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
 
 const MessagesScreen = () => {
-  const messages = [
+  const initialMessages = [
     {
       id: 1,
       title: "T1",
@@ -31,7 +31,11 @@ const MessagesScreen = () => {
       image: require("../assets/new.jpg"),
     },
   ];
+  const [messages, setMessages] = useState(initialMessages);
 
+  const handleDelete = (id) => {
+    setMessages(messages.filter((m) => m.id != id));
+  };
   return (
     <View style={styles.container}>
       <FlatList
@@ -45,7 +49,13 @@ const MessagesScreen = () => {
             onPress={() => {
               console.log(`${item.title}`);
             }}
-            renderRightActions={ListItemDeleteAction}
+            renderRightActions={() => (
+              <ListItemDeleteAction
+                onPress={() => {
+                  handleDelete(item.id);
+                }}
+              />
+            )}
           />
         )}
         ItemSeparatorComponent={() => (
