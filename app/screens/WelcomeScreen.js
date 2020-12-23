@@ -58,10 +58,12 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 70,
     borderColor: "red",
-    // borderWidth: 2,
+    borderWidth: 2,
+    alignItems: "center",
   },
   txt: {
-    fontSize: 20,
+    color: "white",
+    fontSize: 16,
     fontWeight: "bold",
   },
   buttonContainer: {
