@@ -67,6 +67,17 @@ const MessagesScreen = () => {
             }}
           />
         )}
+        refreshing={false}
+        onRefresh={() => {
+          setMessages([
+            {
+              id: 2,
+              title: "T2",
+              description: "D2",
+              image: require("../assets/new.jpg"),
+            },
+          ]);
+        }}
       />
     </View>
   );
