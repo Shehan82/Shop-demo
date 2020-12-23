@@ -7,6 +7,7 @@ import {
   Image,
   Platform,
 } from "react-native";
+import AppButton from "../components/AppButton";
 
 const WelcomeScreen = () => {
   return (
@@ -21,7 +22,7 @@ const WelcomeScreen = () => {
         ></Image>
         <Text style={styles.txt}>We care always</Text>
       </View>
-      <View style={styles.loginButton} />
+      <AppButton />
       <View style={styles.signUpButton} />
     </ImageBackground>
   );
