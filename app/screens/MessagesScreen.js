@@ -32,6 +32,7 @@ const MessagesScreen = () => {
     },
   ];
   const [messages, setMessages] = useState(initialMessages);
+  const [refreshing, setRefreshing] = useState(false);
 
   const handleDelete = (id) => {
     setMessages(messages.filter((m) => m.id != id));
@@ -67,7 +68,7 @@ const MessagesScreen = () => {
             }}
           />
         )}
-        refreshing={false}
+        refreshing={refreshing}
         onRefresh={() => {
           setMessages([
             {
@@ -88,5 +89,6 @@ export default MessagesScreen;
 const styles = StyleSheet.create({
   container: {
     marginTop: Constants.statusBarHeight,
+    flex: 1,
   },
 });

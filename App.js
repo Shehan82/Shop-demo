@@ -25,6 +25,9 @@ import ViewImageScreen from "./app/screens/ViewImageScreen";
 import Card from "./app/components/Card";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
+import Icon from "./app/components/Icon";
+import Constants from "expo-constants";
+import ListItem from "./app/components/ListItem";
 
 export default function App() {
   const [input, setInput] = useState("");
@@ -40,7 +43,9 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <MessagesScreen />
+      <Icon name="email" size={60} color="white" bgColor="red" />
+
+      <ListItem title="hello i am shehan" subtitle="hi how are you" />
     </View>
   );
 }
@@ -79,5 +84,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#f8f4f4",
+    marginTop: Constants.statusBarHeight,
   },
 });
