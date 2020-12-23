@@ -1,7 +1,14 @@
 import React from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View,
+} from "react-native";
 import ListItem from "../components/ListItem";
 import Constants from "expo-constants";
+import ListItemDeleteAction from "../components/ListItemDeleteAction";
 
 const MessagesScreen = () => {
   const messages = [
@@ -13,6 +20,12 @@ const MessagesScreen = () => {
     },
     {
       id: 2,
+      title: "T2",
+      description: "D2",
+      image: require("../assets/new.jpg"),
+    },
+    {
+      id: 3,
       title: "T2",
       description: "D2",
       image: require("../assets/new.jpg"),
@@ -29,14 +42,18 @@ const MessagesScreen = () => {
             title={item.title}
             subtitle={item.description}
             image={item.image}
+            onPress={() => {
+              console.log(`${item.title}`);
+            }}
+            renderRightActions={ListItemDeleteAction}
           />
         )}
         ItemSeparatorComponent={() => (
           <View
             style={{
               width: "100%",
-              height: 1,
-              backgroundColor: "#f8f4",
+              height: 1 / 2,
+              backgroundColor: "lightgrey",
             }}
           />
         )}
