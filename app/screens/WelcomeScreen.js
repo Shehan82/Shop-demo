@@ -14,7 +14,7 @@ const WelcomeScreen = () => {
     <ImageBackground
       style={styles.background}
       source={require("../assets/back.jpg")}
-      blurRadius={0}
+      blurRadius={Platform.OS === "ios" ? 5 : 2}
     >
       <View style={styles.logoContainer}>
         <Image
@@ -57,8 +57,8 @@ const styles = StyleSheet.create({
   logoContainer: {
     position: "absolute",
     top: 70,
-    borderColor: "red",
-    borderWidth: 2,
+    // borderColor: "red",
+    // borderWidth: 2,
     alignItems: "center",
   },
   txt: {
@@ -69,8 +69,8 @@ const styles = StyleSheet.create({
   buttonContainer: {
     width: "100%",
     alignItems: "center",
-    borderColor: "red",
-    borderWidth: 2,
+    // borderColor: "red",
+    // borderWidth: 2,
     padding: 20,
     height: 140,
     justifyContent: "space-between",
