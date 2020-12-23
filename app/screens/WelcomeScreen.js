@@ -14,6 +14,7 @@ const WelcomeScreen = () => {
     <ImageBackground
       style={styles.background}
       source={require("../assets/back.jpg")}
+      blurRadius={0}
     >
       <View style={styles.logoContainer}>
         <Image
@@ -22,8 +23,11 @@ const WelcomeScreen = () => {
         ></Image>
         <Text style={styles.txt}>We care always</Text>
       </View>
-      <AppButton title="LOGIN" />
-      <AppButton title="REGISTER" color="tomato" />
+
+      <View style={styles.buttonContainer}>
+        <AppButton title="LOGIN" />
+        <AppButton title="REGISTER" color="tomato" />
+      </View>
     </ImageBackground>
   );
 };
@@ -59,5 +63,14 @@ const styles = StyleSheet.create({
   txt: {
     fontSize: 20,
     fontWeight: "bold",
+  },
+  buttonContainer: {
+    width: "100%",
+    alignItems: "center",
+    borderColor: "red",
+    borderWidth: 2,
+    padding: 20,
+    height: 140,
+    justifyContent: "space-between",
   },
 });
