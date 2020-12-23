@@ -43,13 +43,19 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Icon name="email" size={60} color="white" bgColor="red" />
+      {/* <Icon name="email" size={60} color="white" bgColor="red" />
 
       <ListItem
         title="hello i am shehan"
         ImageComponent={
           <Icon name="email" size={60} color="white" bgColor="red" />
         }
+      /> */}
+
+      <ListItem
+        title="Shehan Sandeepa"
+        subtitle="Shehansandeepa82@gmail.com"
+        image={require("./app/assets/new.jpg")}
       />
     </View>
   );
