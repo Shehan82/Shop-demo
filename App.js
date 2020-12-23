@@ -28,6 +28,7 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import Icon from "./app/components/Icon";
 import Constants from "expo-constants";
 import ListItem from "./app/components/ListItem";
+import AccountScreen from "./app/screens/AccountScreen";
 
 export default function App() {
   const [input, setInput] = useState("");
@@ -52,11 +53,7 @@ export default function App() {
         }
       /> */}
 
-      <ListItem
-        title="Shehan Sandeepa"
-        subtitle="Shehansandeepa82@gmail.com"
-        image={require("./app/assets/new.jpg")}
-      />
+      <AccountScreen />
     </View>
   );
 }
