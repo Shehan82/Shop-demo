@@ -22,8 +22,8 @@ const WelcomeScreen = () => {
         ></Image>
         <Text style={styles.txt}>We care always</Text>
       </View>
-      <AppButton />
-      <View style={styles.signUpButton} />
+      <AppButton title="LOGIN" />
+      <AppButton title="REGISTER" color="tomato" />
     </ImageBackground>
   );
 };
