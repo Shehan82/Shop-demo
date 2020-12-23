@@ -22,6 +22,7 @@ import {
 import Todo from "./Todo";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
+import Card from "./app/components/Card";
 
 export default function App() {
   const [input, setInput] = useState("");
@@ -37,7 +38,11 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <WelcomeScreen />
+      <Card
+        title="Jacket for sale!"
+        subTitle="$100"
+        image={require("./app/assets/jacket.jpg")}
+      />
     </View>
   );
 }
@@ -75,5 +80,8 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    padding: 20,
+    paddingVertical: 100,
+    backgroundColor: "#f8f4f4",
   },
 });

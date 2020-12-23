@@ -14,7 +14,7 @@ const WelcomeScreen = () => {
     <ImageBackground
       style={styles.background}
       source={require("../assets/back.jpg")}
-      blurRadius={Platform.OS === "ios" ? 5 : 2}
+      blurRadius={Platform.OS === "ios" ? 5 : 1}
     >
       <View style={styles.logoContainer}>
         <Image
