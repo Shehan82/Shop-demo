@@ -45,7 +45,12 @@ export default function App() {
     <View style={styles.container}>
       <Icon name="email" size={60} color="white" bgColor="red" />
 
-      <ListItem title="hello i am shehan" subtitle="hi how are you" />
+      <ListItem
+        title="hello i am shehan"
+        ImageComponent={
+          <Icon name="email" size={60} color="white" bgColor="red" />
+        }
+      />
     </View>
   );
 }
