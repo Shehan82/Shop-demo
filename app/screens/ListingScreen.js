@@ -26,17 +26,25 @@ const ListingScreen = () => {
   ];
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={data}
-        keyExtractor={(item) => item.id}
-        renderItem={
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
           <Card
             title={item.title}
             subTitle={"$ " + item.price}
             image={item.image}
           />
-        }
+        )}
+        ItemSeparatorComponent={() => (
+          <View
+            style={{
+              width: "100%",
+              height: 30,
+            }}
+          />
+        )}
       />
     </View>
   );
@@ -44,4 +52,9 @@ const ListingScreen = () => {
 
 export default ListingScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    padding: 10,
+    paddingBottom: 20,
+  },
+});

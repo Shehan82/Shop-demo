@@ -29,6 +29,8 @@ import Icon from "./app/components/Icon";
 import Constants from "expo-constants";
 import ListItem from "./app/components/ListItem";
 import AccountScreen from "./app/screens/AccountScreen";
+import ListingScreen from "./app/screens/ListingScreen";
+import AppTextInput from "./app/components/AppTextInput";
 
 export default function App() {
   const [input, setInput] = useState("");
@@ -53,7 +55,7 @@ export default function App() {
         }
       /> */}
 
-      <AccountScreen />
+      <AppTextInput icon="email" />
     </View>
   );
 }
