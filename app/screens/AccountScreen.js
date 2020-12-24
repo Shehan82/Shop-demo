@@ -54,6 +54,15 @@ const AccountScreen = () => {
               }
             />
           )}
+          ItemSeparatorComponent={() => (
+            <View
+              style={{
+                width: "100%",
+                height: 1 / 2,
+                backgroundColor: "lightgrey",
+              }}
+            />
+          )}
         />
       </View>
     </View>
@@ -64,7 +73,6 @@ export default AccountScreen;
 
 const styles = StyleSheet.create({
   container: {
-    paddingLeft: 20,
     marginTop: 40,
     // backgroundColor: "white",
   },

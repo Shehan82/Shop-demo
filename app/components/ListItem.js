@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     padding: 10,
+    backgroundColor: "white",
   },
   img: {
     width: 70,
