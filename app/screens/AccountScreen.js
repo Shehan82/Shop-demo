@@ -42,7 +42,7 @@ const AccountScreen = () => {
             <ListItem
               title={item.title}
               onPress={() => {
-                console.log("ksjd");
+                console.log(item.title + " pressed!");
               }}
               ImageComponent={
                 <Icon
@@ -65,6 +65,18 @@ const AccountScreen = () => {
           )}
         />
       </View>
+
+      <View style={styles.logout}>
+        <ListItem
+          title="Log Out"
+          ImageComponent={
+            <Icon name="logout" color="white" bgColor="yellow" size={40} />
+          }
+          onPress={() => {
+            console.log("logOut pressd!");
+          }}
+        />
+      </View>
     </View>
   );
 };
@@ -74,6 +86,8 @@ export default AccountScreen;
 const styles = StyleSheet.create({
   container: {
     marginTop: 40,
-    // backgroundColor: "white",
+  },
+  logout: {
+    marginTop: 40,
   },
 });
