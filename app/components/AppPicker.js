@@ -1,13 +1,34 @@
-import React from "react";
-import { StyleSheet, Text, TextInput, View, Platform } from "react-native";
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Platform,
+  Modal,
+  TouchableWithoutFeedback,
+} from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const AppPicker = ({ icon, ...otherProps }) => {
+  const [modalVisible, setModalVisible] = useState(false);
   return (
-    <View style={styles.container}>
-      {icon && <MaterialCommunityIcons name={icon} size={24} color="#1B1B1B" />}
-      <TextInput style={styles.txt} placeholder="email" {...otherProps} />
-    </View>
+    <>
+      <TouchableWithoutFeedback>
+        <View style={styles.container}>
+          {icon && (
+            <MaterialCommunityIcons name={icon} size={24} color="#1B1B1B" />
+          )}
+          <Text style={styles.txt}>Category</Text>
+          <MaterialCommunityIcons
+            name="chevron-down"
+            size={24}
+            color="#1B1B1B"
+          />
+        </View>
+      </TouchableWithoutFeedback>
+      <Modal visible={modalVisible} animationType="slide"></Modal>
+    </>
   );
 };
 
@@ -23,7 +44,7 @@ const styles = StyleSheet.create({
   },
   txt: {
     marginLeft: 10,
-    width: "90%",
+    flex: 1,
     fontSize: 17,
     fontFamily: Platform.OS === "ios" ? "Avenir" : "Roboto",
   },

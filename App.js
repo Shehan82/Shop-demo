@@ -31,6 +31,7 @@ import ListItem from "./app/components/ListItem";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingScreen from "./app/screens/ListingScreen";
 import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
 
 export default function App() {
   const [input, setInput] = useState("");
@@ -56,6 +57,8 @@ export default function App() {
       /> */}
 
       <AppTextInput icon="email" />
+
+      <AppPicker icon="apps" />
     </View>
   );
 }

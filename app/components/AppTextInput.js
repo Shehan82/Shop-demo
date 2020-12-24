@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: "lightgrey",
     borderRadius: 25,
+    marginVertical: 15,
   },
   txt: {
     marginLeft: 10,
