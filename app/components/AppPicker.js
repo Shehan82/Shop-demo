@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: "lightgrey",
     borderRadius: 25,
+    marginVertical: 10,
   },
   txt: {
     marginLeft: 10,
