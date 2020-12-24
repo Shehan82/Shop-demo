@@ -6,7 +6,7 @@ const AppTextInput = ({ icon, ...otherProps }) => {
   return (
     <View style={styles.container}>
       {icon && <MaterialCommunityIcons name={icon} size={24} color="#1B1B1B" />}
-      <TextInput style={styles.txt} placeholder="email" {...otherProps} />
+      <TextInput style={styles.txt} {...otherProps} />
     </View>
   );
 };
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: "lightgrey",
     borderRadius: 25,
-    marginVertical: 15,
+    marginVertical: 10,
   },
   txt: {
     marginLeft: 10,

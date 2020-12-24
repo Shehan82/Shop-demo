@@ -1,13 +1,19 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Platform,
+} from "react-native";
 
-const AppButton = ({ title, onPress, color = "gold" }) => {
+const AppButton = ({ title, onPress, color = "gold", txtColor = "black" }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[styles.button, , { backgroundColor: color }]}
+      style={[styles.button, { backgroundColor: color }]}
     >
-      <Text style={styles.txt}>{title}</Text>
+      <Text style={[styles.txt, { color: txtColor }]}>{title}</Text>
     </TouchableOpacity>
   );
 };
@@ -22,9 +28,11 @@ const styles = StyleSheet.create({
     height: 42,
     justifyContent: "center",
     alignItems: "center",
+    marginVertical: 10,
   },
   txt: {
-    fontSize: 20,
-    fontWeight: "500",
+    fontSize: 17,
+    fontWeight: "700",
+    fontFamily: Platform.OS === "ios" ? "Avenir" : "Roboto",
   },
 });
