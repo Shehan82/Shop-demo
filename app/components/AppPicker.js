@@ -12,7 +12,7 @@ import {
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Constants from "expo-constants";
 
-const AppPicker = ({ icon, ...otherProps }) => {
+const AppPicker = ({ icon, item, placeholder }) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
@@ -25,7 +25,7 @@ const AppPicker = ({ icon, ...otherProps }) => {
           {icon && (
             <MaterialCommunityIcons name={icon} size={24} color="#1B1B1B" />
           )}
-          <Text style={styles.txt}>Category</Text>
+          <Text style={styles.txt}>{placeholder}</Text>
           <MaterialCommunityIcons
             name="chevron-down"
             size={24}

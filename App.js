@@ -34,31 +34,26 @@ import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 
 export default function App() {
-  const [input, setInput] = useState("");
-  const [todos, setTodos] = useState(["shehen sandeepa"]);
-
-  const addToDo = () => {
-    setTodos([input, ...todos]);
-  };
-
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
-  console.log(useDeviceOrientation().landscape);
+  const Categories = [
+    {
+      label: "Furniture",
+      value: 1,
+    },
+    {
+      label: "Clothing",
+      value: 2,
+    },
+    {
+      label: "Technology",
+      value: 3,
+    },
+  ];
 
   return (
     <View style={styles.container}>
-      {/* <Icon name="email" size={60} color="white" bgColor="red" />
-
-      <ListItem
-        title="hello i am shehan"
-        ImageComponent={
-          <Icon name="email" size={60} color="white" bgColor="red" />
-        }
-      /> */}
-
       <AppTextInput icon="email" />
 
-      <AppPicker icon="apps" />
+      <AppPicker item={Categories} placeholder="shehan" icon="apps" />
     </View>
   );
 }
