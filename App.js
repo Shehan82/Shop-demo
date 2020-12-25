@@ -34,6 +34,7 @@ import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
 import ListEditScreen from "./app/screens/ListEditScreen";
+import PicImages from "./app/components/PicImages";
 // import LoginScreen from "./app/screens/LoginScreen";
 
 export default function App() {
@@ -96,7 +97,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <ListEditScreen />
+      <PicImages />
+      {/* <ListEditScreen /> */}
     </View>
   );
 }
