@@ -29,6 +29,7 @@ const ListItem = ({
                 fontSize: 18,
                 fontWeight: "bold",
               }}
+              numberOfLines={1}
             >
               {title}
             </Text>
@@ -39,6 +40,7 @@ const ListItem = ({
                   fontWeight: "700",
                   color: "grey",
                 }}
+                numberOfLines={2}
               >
                 {subtitle}
               </Text>

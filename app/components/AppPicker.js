@@ -9,6 +9,7 @@ import {
   TouchableWithoutFeedback,
   Button,
   FlatList,
+  TouchableOpacity,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Constants from "expo-constants";
@@ -41,12 +42,25 @@ const AppPicker = ({ icon, item, placeholder, onSelectItem }) => {
 
       <Modal visible={modalVisible} animationType="slide">
         <View style={styles.modal}>
-          <Button
-            title="Press me"
-            onPress={() => {
-              setModalVisible(false);
-            }}
-          />
+          {Platform.OS === "ios" ? (
+            <Button
+              title="Press me"
+              onPress={() => {
+                setModalVisible(false);
+              }}
+            />
+          ) : (
+            <TouchableOpacity>
+              <Text
+                onPress={() => {
+                  setModalVisible(false);
+                }}
+              >
+                Close
+              </Text>
+            </TouchableOpacity>
+          )}
+
           {/* <Text>{Categories[0].label}</Text> */}
           <FlatList
             data={item}
@@ -85,7 +99,5 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontFamily: Platform.OS === "ios" ? "Avenir" : "Roboto",
   },
-  modal: {
-    paddingTop: 30,
-  },
+  modal: {},
 });
