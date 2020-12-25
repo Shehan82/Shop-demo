@@ -7,6 +7,7 @@ import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 const PicImages = () => {
   const [url, setUrl] = useState();
   const [modalVisibility, setModalVisibility] = useState(false);
+  const [data, setdata] = useState([]);
 
   const getImagePermission = async () => {
     const permisson = await ImagePicker.requestCameraPermissionsAsync();
