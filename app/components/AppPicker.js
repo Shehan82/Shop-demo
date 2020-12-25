@@ -44,17 +44,18 @@ const AppPicker = ({ icon, item, placeholder, onSelectItem }) => {
         <View style={styles.modal}>
           {Platform.OS === "ios" ? (
             <Button
-              title="Press me"
+              title="Close"
               onPress={() => {
                 setModalVisible(false);
               }}
             />
           ) : (
-            <TouchableOpacity>
+            <TouchableOpacity style={styles.txtContainer}>
               <Text
                 onPress={() => {
                   setModalVisible(false);
                 }}
+                style={styles.txtClose}
               >
                 Close
               </Text>
@@ -99,5 +100,14 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontFamily: Platform.OS === "ios" ? "Avenir" : "Roboto",
   },
-  modal: {},
+  modal: {
+    paddingTop: 20,
+  },
+  txtClose: {
+    color: "blue",
+    fontSize: 17,
+  },
+  txtContainer: {
+    alignItems: "center",
+  },
 });
