@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+  Platform,
+} from "react-native";
 import Icon from "./Icon";
 
 const PickerItems = ({ name, onPress, iconName, iconBgColor }) => {
@@ -8,7 +14,9 @@ const PickerItems = ({ name, onPress, iconName, iconBgColor }) => {
       <TouchableWithoutFeedback onPress={onPress}>
         <View style={styles.iconContainer}>
           <Icon name={iconName} bgColor={iconBgColor} size={80} color="white" />
-          <Text numberOfLines={2}>{name}</Text>
+          <Text style={styles.txt} numberOfLines={2}>
+            {name}
+          </Text>
         </View>
       </TouchableWithoutFeedback>
     </View>
@@ -24,9 +32,15 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     alignItems: "center",
-    borderColor: "red",
-    borderWidth: 2,
+    // borderColor: "red",
+    // borderWidth: 2,
     width: 100,
     alignContent: "center",
+  },
+  txt: {
+    marginTop: 3,
+    fontFamily: Platform.OS === "ios" ? "Avenir" : "Roboto",
+    fontSize: 15,
+    fontWeight: "600",
   },
 });

@@ -115,8 +115,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   col: {
-    borderWidth: 2,
-    borderColor: "blue",
+    // borderWidth: 2,
+    // borderColor: "blue",
     justifyContent: "space-around",
+    marginVertical: 10,
   },
 });
