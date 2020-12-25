@@ -69,6 +69,8 @@ const AppPicker = ({ icon, item, placeholder, onSelectItem }) => {
             renderItem={({ item }) => (
               <PickerItems
                 name={item.label}
+                iconName={item.iconName}
+                iconBgColor={item.iconBgColor}
                 onPress={() => {
                   setHolder(item.label);
                   onSelectItem(item.label);
