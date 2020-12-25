@@ -65,7 +65,9 @@ const AppPicker = ({ icon, item, placeholder, onSelectItem }) => {
           {/* <Text>{Categories[0].label}</Text> */}
           <FlatList
             data={item}
+            numColumns={3}
             keyExtractor={(item) => item.value.toString()}
+            columnWrapperStyle={styles.col}
             renderItem={({ item }) => (
               <PickerItems
                 name={item.label}
@@ -111,5 +113,10 @@ const styles = StyleSheet.create({
   },
   txtContainer: {
     alignItems: "center",
+  },
+  col: {
+    borderWidth: 2,
+    borderColor: "blue",
+    justifyContent: "space-around",
   },
 });
