@@ -14,10 +14,10 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Constants from "expo-constants";
 import PickerItems from "./PickerItems";
 
-const AppPicker = ({ icon, item, placeholder }) => {
+const AppPicker = ({ icon, item, placeholder, onSelectItem }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [holder, setHolder] = useState(
-    item[0].label ? item[0].label : placeholder
+    placeholder ? placeholder : item[0].label
   );
   return (
     <>
@@ -56,6 +56,7 @@ const AppPicker = ({ icon, item, placeholder }) => {
                 name={item.label}
                 onPress={() => {
                   setHolder(item.label);
+                  onSelectItem(item.label);
                   setModalVisible(false);
                 }}
               />

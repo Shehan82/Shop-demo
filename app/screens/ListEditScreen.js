@@ -30,11 +30,18 @@ const ListEditScreen = () => {
   return (
     <View style={styles.container}>
       <Formik
-        initialValues={{ title: "", price: "", Categorie: "", description: "" }}
+        initialValues={{ title: "", price: "", Category: "", description: "" }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
+        {({
+          handleChange,
+          handleSubmit,
+          errors,
+          setFieldTouched,
+          touched,
+          setFieldValue,
+        }) => (
           <>
             <AppTextInput
               placeholder="Title"
@@ -43,7 +50,7 @@ const ListEditScreen = () => {
               }}
               onChangeText={handleChange("title")}
             />
-            {touched.title && (
+            {touched.title && errors.title && (
               <Text style={{ color: "red" }}>{errors.title}</Text>
             )}
 
@@ -54,11 +61,15 @@ const ListEditScreen = () => {
               }}
               placeholder="Price"
             />
-            {touched.price && (
+            {touched.price && errors.price && (
               <Text style={{ color: "red" }}>{errors.price}</Text>
             )}
 
-            <AppPicker item={Categories} />
+            <AppPicker
+              item={Categories}
+              placeholder="Category"
+              onSelectItem={(item) => setFieldValue("Category", item)}
+            />
 
             <AppTextInput
               onChangeText={handleChange("description")}
