@@ -34,7 +34,7 @@ const PicImages = () => {
 
   return (
     <View>
-      <Button title="press me if you can" onPress={openLibrary} />
+      <Button title="Pick a photo" onPress={openLibrary} />
       <TouchableWithoutFeedback
         onPress={() => {
           setModalVisibility(true);
@@ -46,9 +46,22 @@ const PicImages = () => {
       <Modal transparent={true} visible={modalVisibility} animationType="slide">
         <View style={styles.outerModalView}>
           <View style={styles.innerModalView}>
-            <Text>skldfj</Text>
             <Button
               title="close"
+              onPress={() => {
+                setModalVisibility(false);
+              }}
+            />
+            <Text>Do you want Delete this photo</Text>
+            <Button
+              title="Yes"
+              onPress={() => {
+                setUrl();
+                setModalVisibility(false);
+              }}
+            />
+            <Button
+              title="No"
               onPress={() => {
                 setModalVisibility(false);
               }}
