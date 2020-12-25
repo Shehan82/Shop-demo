@@ -119,5 +119,6 @@ const styles = StyleSheet.create({
     // borderColor: "blue",
     justifyContent: "space-around",
     marginVertical: 10,
+    marginLeft: -10,
   },
 });
