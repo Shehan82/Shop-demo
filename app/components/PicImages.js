@@ -5,7 +5,7 @@ import * as Permission from "expo-permissions";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 const PicImages = () => {
-  const [url, setUrl] = useState();
+  //   const [url, setUrl] = useState();
   const [modalVisibility, setModalVisibility] = useState(false);
   const [data, setdata] = useState([]);
 
@@ -24,10 +24,12 @@ const PicImages = () => {
   const openLibrary = async () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync();
-      const url = result.uri;
-      setUrl(url);
+      const url1 = result.uri;
+      //   setUrl(url1);
+      setdata([url1, ...data]);
 
-      console.log(url);
+      //   console.log(data);
+      //   console.log(url1);
     } catch (error) {
       console.log(error);
     }
@@ -36,13 +38,15 @@ const PicImages = () => {
   return (
     <View>
       <Button title="Pick a photo" onPress={openLibrary} />
-      <TouchableWithoutFeedback
-        onPress={() => {
-          setModalVisibility(true);
-        }}
-      >
-        <Image source={{ uri: url }} style={{ width: 100, height: 100 }} />
-      </TouchableWithoutFeedback>
+      {data.map((url) => (
+        <TouchableWithoutFeedback
+          onPress={() => {
+            setModalVisibility(true);
+          }}
+        >
+          <Image source={{ uri: url }} style={{ width: 100, height: 100 }} />
+        </TouchableWithoutFeedback>
+      ))}
 
       <Modal transparent={true} visible={modalVisibility} animationType="slide">
         <View style={styles.outerModalView}>
