@@ -11,7 +11,7 @@ import {
 import * as ImagePicker from "expo-image-picker";
 import * as Permission from "expo-permissions";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 const PicImages = () => {
   //   const [url, setUrl] = useState();
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -51,23 +51,33 @@ const PicImages = () => {
 
   return (
     <View>
-      <Button title="Pick a photo" onPress={openLibrary} />
+      <View>
+        <TouchableWithoutFeedback
+          style={styles.imageLibrary}
+          onPress={openLibrary}
+        >
+          <MaterialCommunityIcons name="camera" size={40} color="#635e5e" />
+        </TouchableWithoutFeedback>
 
-      <FlatList
-        data={data}
-        keyExtractor={(item) => item}
-        numColumns={3}
-        renderItem={({ item }) => (
-          <TouchableWithoutFeedback
-            onPress={() => {
-              setDeleteUrl(item);
-              setModalVisibility(true);
-            }}
-          >
-            <Image source={{ uri: item }} style={{ width: 100, height: 100 }} />
-          </TouchableWithoutFeedback>
-        )}
-      />
+        <FlatList
+          data={data}
+          keyExtractor={(item) => item}
+          numColumns={3}
+          renderItem={({ item }) => (
+            <TouchableWithoutFeedback
+              onPress={() => {
+                setDeleteUrl(item);
+                setModalVisibility(true);
+              }}
+            >
+              <Image
+                source={{ uri: item }}
+                style={{ width: 100, height: 100 }}
+              />
+            </TouchableWithoutFeedback>
+          )}
+        />
+      </View>
 
       {/* {data.map((url) => (
         <TouchableWithoutFeedback
@@ -127,5 +137,13 @@ const styles = StyleSheet.create({
     height: 300,
     borderColor: "blue",
     borderWidth: 2,
+  },
+  imageLibrary: {
+    width: 80,
+    height: 80,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "lightgrey",
+    borderRadius: 15,
   },
 });
