@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import PicImages from "../components/PicImages";
 
 const validationSchema = Yup.object().shape({
+  images: Yup.array().min(1).label("Images"),
   title: Yup.string().required().label("Title"),
   price: Yup.number().required().label("Price"),
   Category: Yup.string().required().label("Category"),
@@ -96,6 +97,9 @@ const ListEditScreen = () => {
             <PicImages
               selectedImages={(item) => setFieldValue("images", item)}
             />
+            {touched.images && errors.images && (
+              <Text style={{ color: "red" }}>{errors.images}</Text>
+            )}
             <AppTextInput
               placeholder="Title"
               onBlur={() => {

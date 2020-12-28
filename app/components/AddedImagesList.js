@@ -42,5 +42,9 @@ const styles = StyleSheet.create({
   },
   col: {
     marginHorizontal: 10,
+    // justifyContent: "space-between",
+    // borderColor: "red",
+    // borderWidth: 2,
+    flex: 1,
   },
 });

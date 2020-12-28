@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Modal,
-  FlatList,
-} from "react-native";
+import { StyleSheet, View } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
 import AddImageIcon from "./AddImageIcon";
