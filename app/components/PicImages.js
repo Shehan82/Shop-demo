@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Button, StyleSheet, Text, View, Image, Modal } from "react-native";
+import {
+  Button,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Modal,
+  FlatList,
+} from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as Permission from "expo-permissions";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
@@ -9,6 +17,7 @@ const PicImages = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
   const [data, setdata] = useState([]);
   const [deleteUrl, setDeleteUrl] = useState("");
+  var key = 0;
 
   const getImagePermission = async () => {
     const permisson = await ImagePicker.requestCameraPermissionsAsync();
@@ -26,7 +35,11 @@ const PicImages = () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync();
       const url1 = result.uri;
+      // console.log(result.base64);
       //   setUrl(url1);
+      // setKey(key++);
+      // console.log(key);
+      console.log(key);
       setdata([url1, ...data]);
 
       //   console.log(data);
@@ -39,7 +52,23 @@ const PicImages = () => {
   return (
     <View>
       <Button title="Pick a photo" onPress={openLibrary} />
-      {data.map((url) => (
+
+      <FlatList
+        data={data}
+        keyExtractor={(item) => item}
+        renderItem={({ item }) => (
+          <TouchableWithoutFeedback
+            onPress={() => {
+              setDeleteUrl(item);
+              setModalVisibility(true);
+            }}
+          >
+            <Image source={{ uri: item }} style={{ width: 100, height: 100 }} />
+          </TouchableWithoutFeedback>
+        )}
+      />
+
+      {/* {data.map((url) => (
         <TouchableWithoutFeedback
           onPress={() => {
             setDeleteUrl(url);
@@ -48,7 +77,7 @@ const PicImages = () => {
         >
           <Image source={{ uri: url }} style={{ width: 100, height: 100 }} />
         </TouchableWithoutFeedback>
-      ))}
+      ))} */}
 
       <Modal transparent={true} visible={modalVisibility} animationType="slide">
         <View style={styles.outerModalView}>
