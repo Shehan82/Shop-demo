@@ -114,6 +114,9 @@ const ListEditScreen = () => {
               placeholder="Category"
               onSelectItem={(item) => setFieldValue("Category", item)}
             />
+            {touched.Category && errors.Category && (
+              <Text style={{ color: "red" }}>{errors.Category}</Text>
+            )}
 
             <AppTextInput
               onChangeText={handleChange("description")}
