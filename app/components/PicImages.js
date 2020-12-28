@@ -17,7 +17,7 @@ const PicImages = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
   const [data, setdata] = useState([]);
   const [deleteUrl, setDeleteUrl] = useState("");
-  var key = 0;
+  const [imageState, setImageState] = useState(false);
 
   const getImagePermission = async () => {
     const permisson = await ImagePicker.requestCameraPermissionsAsync();
@@ -31,6 +31,14 @@ const PicImages = () => {
     getImagePermission();
   }, []);
 
+  useEffect(() => {
+    if (data.length === 3) {
+      setImageState(true);
+    } else {
+      setImageState(false);
+    }
+  }, [data]);
+
   const openLibrary = async () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync();
@@ -39,7 +47,7 @@ const PicImages = () => {
       //   setUrl(url1);
       // setKey(key++);
       // console.log(key);
-      console.log(key);
+      // console.log(key);
       setdata([url1, ...data]);
 
       //   console.log(data);
@@ -51,8 +59,9 @@ const PicImages = () => {
 
   return (
     <View>
-      <View>
+      <View style={styles.container}>
         <TouchableWithoutFeedback
+          disabled={imageState}
           style={styles.imageLibrary}
           onPress={openLibrary}
         >
@@ -145,5 +154,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "lightgrey",
     borderRadius: 15,
+  },
+  container: {
+    flexDirection: "row",
   },
 });
