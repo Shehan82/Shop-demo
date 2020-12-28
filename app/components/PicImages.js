@@ -10,10 +10,9 @@ import {
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-
 import AddImageIcon from "./AddImageIcon";
 import AddedImagesList from "./AddedImagesList";
+import PicImagesModal from "./PicImagesModal";
 const PicImages = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
   const [data, setdata] = useState([]);
@@ -56,43 +55,28 @@ const PicImages = () => {
     setModalVisibility(true);
   };
 
+  const setVisibilityFalse = () => {
+    setModalVisibility(false);
+  };
+
+  const modalYesButton = () => {
+    setdata(data.filter((m) => m != deleteUrl));
+    setModalVisibility(false);
+  };
+
   return (
     <View>
       <View style={styles.container}>
         <AddImageIcon disable={imageState} onPress={openLibrary} />
 
-        <View style={styles.listContainer}>
-          <AddedImagesList data={data} press={clickImage} />
-        </View>
+        <AddedImagesList data={data} press={clickImage} />
       </View>
 
-      <Modal transparent={true} visible={modalVisibility} animationType="slide">
-        <View style={styles.outerModalView}>
-          <View style={styles.innerModalView}>
-            <Button
-              title="close"
-              onPress={() => {
-                setModalVisibility(false);
-              }}
-            />
-            <Text>Do you want Delete this photo</Text>
-            <Button
-              title="Yes"
-              onPress={() => {
-                setdata(data.filter((m) => m != deleteUrl));
-                setModalVisibility(false);
-              }}
-            />
-            <Button
-              title="No"
-              onPress={() => {
-                setModalVisibility(false);
-              }}
-            />
-          </View>
-        </View>
-      </Modal>
-      {/* </View> */}
+      <PicImagesModal
+        visible={modalVisibility}
+        visibleFalse={setVisibilityFalse}
+        yesButton={modalYesButton}
+      />
     </View>
   );
 };
@@ -100,20 +84,6 @@ const PicImages = () => {
 export default PicImages;
 
 const styles = StyleSheet.create({
-  outerModalView: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    // borderColor: "red",
-    // borderWidth: 10,
-  },
-  innerModalView: {
-    width: 300,
-    height: 300,
-    borderColor: "blue",
-    borderWidth: 2,
-  },
   container: {
     flexDirection: "row",
   },
