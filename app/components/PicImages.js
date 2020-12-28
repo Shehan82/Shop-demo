@@ -12,8 +12,8 @@ import * as ImagePicker from "expo-image-picker";
 import * as Permission from "expo-permissions";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import AddImageIcon from "./AddImageIcon";
 const PicImages = () => {
-  //   const [url, setUrl] = useState();
   const [modalVisibility, setModalVisibility] = useState(false);
   const [data, setdata] = useState([]);
   const [deleteUrl, setDeleteUrl] = useState("");
@@ -43,15 +43,8 @@ const PicImages = () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync();
       const url1 = result.uri;
-      // console.log(result.base64);
-      //   setUrl(url1);
-      // setKey(key++);
-      // console.log(key);
-      // console.log(key);
-      setdata([url1, ...data]);
 
-      //   console.log(data);
-      //   console.log(url1);
+      setdata([url1, ...data]);
     } catch (error) {
       console.log(error);
     }
@@ -60,15 +53,7 @@ const PicImages = () => {
   return (
     <View>
       <View style={styles.container}>
-        <View style={styles.iconContainer}>
-          <TouchableWithoutFeedback
-            disabled={imageState}
-            style={styles.imageLibrary}
-            onPress={openLibrary}
-          >
-            <MaterialCommunityIcons name="camera" size={40} color="#635e5e" />
-          </TouchableWithoutFeedback>
-        </View>
+        <AddImageIcon disable={imageState} onPress={openLibrary} />
 
         <View style={styles.listContainer}>
           <FlatList
@@ -156,14 +141,6 @@ const styles = StyleSheet.create({
     height: 300,
     borderColor: "blue",
     borderWidth: 2,
-  },
-  imageLibrary: {
-    width: 80,
-    height: 80,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "lightgrey",
-    borderRadius: 15,
   },
   container: {
     flexDirection: "row",
