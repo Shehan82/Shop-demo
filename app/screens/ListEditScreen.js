@@ -5,6 +5,7 @@ import AppPicker from "../components/AppPicker";
 import AppTextInput from "../components/AppTextInput";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import PicImages from "../components/PicImages";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().label("Title"),
@@ -85,6 +86,7 @@ const ListEditScreen = () => {
           setFieldValue,
         }) => (
           <>
+            <PicImages />
             <AppTextInput
               placeholder="Title"
               onBlur={() => {
