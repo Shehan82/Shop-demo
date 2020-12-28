@@ -41,23 +41,28 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
-  const tweet = () => (
+  const tweet = ({ navigation }) => (
     <View>
       <Text>Tweet</Text>
+      <Button
+        title="View tweet"
+        onPress={() => navigation.navigate("tweetDetails")}
+      />
     </View>
   );
 
-  const tweetDetails = () => (
+  const tweetDetails = ({ navigation }) => (
     <View>
       <Text>tweet details</Text>
+      <Button title="Go Back" onPress={() => navigation.navigate("tweets")} />
     </View>
   );
   const Stack = createStackNavigator(); //this returns the object
 
   const StackNavigator = () => (
     <Stack.Navigator>
-      <Stack.Screen name="Tweet Details" component={tweetDetails} />
-      <Stack.Screen name="Tweets" component={tweet} />
+      <Stack.Screen name="tweets" component={tweet} />
+      <Stack.Screen name="tweetDetails" component={tweetDetails} />
     </Stack.Navigator>
   );
   return (
