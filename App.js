@@ -38,6 +38,7 @@ import PicImages from "./app/components/PicImages";
 // import LoginScreen from "./app/screens/LoginScreen";
 
 import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
@@ -48,6 +49,12 @@ export default function App() {
         title="View tweet"
         onPress={() => navigation.navigate("tweetDetails", { id: 2 })}
       />
+    </View>
+  );
+
+  const account = ({ navigation }) => (
+    <View>
+      <Text>Account</Text>
     </View>
   );
 
@@ -71,10 +78,18 @@ export default function App() {
       <Stack.Screen name="tweetDetails" component={tweetDetails} />
     </Stack.Navigator>
   );
+
+  const Tab = createBottomTabNavigator();
+  const TabNavigator = () => (
+    <Tab.Navigator>
+      <Tab.Screen name="feed" component={StackNavigator} />
+      <Tab.Screen name="acount" component={account} />
+    </Tab.Navigator>
+  );
   return (
     <View style={styles.container}>
       <NavigationContainer>
-        <StackNavigator />
+        <TabNavigator />
       </NavigationContainer>
     </View>
   );
