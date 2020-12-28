@@ -60,32 +60,42 @@ const PicImages = () => {
   return (
     <View>
       <View style={styles.container}>
-        <TouchableWithoutFeedback
-          disabled={imageState}
-          style={styles.imageLibrary}
-          onPress={openLibrary}
-        >
-          <MaterialCommunityIcons name="camera" size={40} color="#635e5e" />
-        </TouchableWithoutFeedback>
+        <View style={styles.iconContainer}>
+          <TouchableWithoutFeedback
+            disabled={imageState}
+            style={styles.imageLibrary}
+            onPress={openLibrary}
+          >
+            <MaterialCommunityIcons name="camera" size={40} color="#635e5e" />
+          </TouchableWithoutFeedback>
+        </View>
 
-        <FlatList
-          data={data}
-          keyExtractor={(item) => item}
-          numColumns={3}
-          renderItem={({ item }) => (
-            <TouchableWithoutFeedback
-              onPress={() => {
-                setDeleteUrl(item);
-                setModalVisibility(true);
-              }}
-            >
-              <Image
-                source={{ uri: item }}
-                style={{ width: 100, height: 100 }}
-              />
-            </TouchableWithoutFeedback>
-          )}
-        />
+        <View style={styles.listContainer}>
+          <FlatList
+            data={data}
+            keyExtractor={(item) => item}
+            numColumns={3}
+            columnWrapperStyle={styles.col}
+            renderItem={({ item }) => (
+              <TouchableWithoutFeedback
+                onPress={() => {
+                  setDeleteUrl(item);
+                  setModalVisibility(true);
+                }}
+              >
+                <Image
+                  source={{ uri: item }}
+                  style={{
+                    width: 80,
+                    height: 80,
+                    marginHorizontal: 5,
+                    borderRadius: 15,
+                  }}
+                />
+              </TouchableWithoutFeedback>
+            )}
+          />
+        </View>
       </View>
 
       {/* {data.map((url) => (
@@ -157,5 +167,10 @@ const styles = StyleSheet.create({
   },
   container: {
     flexDirection: "row",
+  },
+  col: {
+    // borderWidth: 2,
+    // borderColor: "blue",
+    marginHorizontal: 10,
   },
 });
