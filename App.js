@@ -46,14 +46,14 @@ export default function App() {
       <Text>Tweet</Text>
       <Button
         title="View tweet"
-        onPress={() => navigation.navigate("tweetDetails")}
+        onPress={() => navigation.navigate("tweetDetails", { id: 2 })}
       />
     </View>
   );
 
-  const tweetDetails = ({ navigation }) => (
+  const tweetDetails = ({ navigation, route }) => (
     <View>
-      <Text>tweet details</Text>
+      <Text>tweet details {route.params.id}</Text>
       <Button title="Go Back" onPress={() => navigation.navigate("tweets")} />
     </View>
   );
@@ -61,7 +61,13 @@ export default function App() {
 
   const StackNavigator = () => (
     <Stack.Navigator>
-      <Stack.Screen name="tweets" component={tweet} />
+      <Stack.Screen
+        name="tweets"
+        component={tweet}
+        options={{
+          headerStyle: { backgroundColor: "red" },
+        }}
+      />
       <Stack.Screen name="tweetDetails" component={tweetDetails} />
     </Stack.Navigator>
   );
