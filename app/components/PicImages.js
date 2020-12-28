@@ -56,6 +56,7 @@ const PicImages = () => {
       <FlatList
         data={data}
         keyExtractor={(item) => item}
+        numColumns={3}
         renderItem={({ item }) => (
           <TouchableWithoutFeedback
             onPress={() => {
@@ -92,7 +93,7 @@ const PicImages = () => {
             <Button
               title="Yes"
               onPress={() => {
-                data.pop(deleteUrl);
+                setdata(data.filter((m) => m != deleteUrl));
                 setModalVisibility(false);
               }}
             />
