@@ -9,10 +9,11 @@ import {
   FlatList,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-import * as Permission from "expo-permissions";
+
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+
 import AddImageIcon from "./AddImageIcon";
+import AddedImagesList from "./AddedImagesList";
 const PicImages = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
   const [data, setdata] = useState([]);
@@ -50,13 +51,19 @@ const PicImages = () => {
     }
   };
 
+  const clickImage = (item) => {
+    setDeleteUrl(item);
+    setModalVisibility(true);
+  };
+
   return (
     <View>
       <View style={styles.container}>
         <AddImageIcon disable={imageState} onPress={openLibrary} />
 
         <View style={styles.listContainer}>
-          <FlatList
+          <AddedImagesList data={data} press={clickImage} />
+          {/* <FlatList
             data={data}
             keyExtractor={(item) => item}
             numColumns={3}
@@ -79,20 +86,9 @@ const PicImages = () => {
                 />
               </TouchableWithoutFeedback>
             )}
-          />
+          /> */}
         </View>
       </View>
-
-      {/* {data.map((url) => (
-        <TouchableWithoutFeedback
-          onPress={() => {
-            setDeleteUrl(url);
-            setModalVisibility(true);
-          }}
-        >
-          <Image source={{ uri: url }} style={{ width: 100, height: 100 }} />
-        </TouchableWithoutFeedback>
-      ))} */}
 
       <Modal transparent={true} visible={modalVisibility} animationType="slide">
         <View style={styles.outerModalView}>
