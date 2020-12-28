@@ -8,6 +8,7 @@ const PicImages = () => {
   //   const [url, setUrl] = useState();
   const [modalVisibility, setModalVisibility] = useState(false);
   const [data, setdata] = useState([]);
+  const [deleteUrl, setDeleteUrl] = useState("");
 
   const getImagePermission = async () => {
     const permisson = await ImagePicker.requestCameraPermissionsAsync();
@@ -41,6 +42,7 @@ const PicImages = () => {
       {data.map((url) => (
         <TouchableWithoutFeedback
           onPress={() => {
+            setDeleteUrl(url);
             setModalVisibility(true);
           }}
         >
@@ -61,7 +63,7 @@ const PicImages = () => {
             <Button
               title="Yes"
               onPress={() => {
-                setUrl();
+                data.pop(deleteUrl);
                 setModalVisibility(false);
               }}
             />
