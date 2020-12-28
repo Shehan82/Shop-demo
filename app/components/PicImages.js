@@ -63,30 +63,6 @@ const PicImages = () => {
 
         <View style={styles.listContainer}>
           <AddedImagesList data={data} press={clickImage} />
-          {/* <FlatList
-            data={data}
-            keyExtractor={(item) => item}
-            numColumns={3}
-            columnWrapperStyle={styles.col}
-            renderItem={({ item }) => (
-              <TouchableWithoutFeedback
-                onPress={() => {
-                  setDeleteUrl(item);
-                  setModalVisibility(true);
-                }}
-              >
-                <Image
-                  source={{ uri: item }}
-                  style={{
-                    width: 80,
-                    height: 80,
-                    marginHorizontal: 5,
-                    borderRadius: 15,
-                  }}
-                />
-              </TouchableWithoutFeedback>
-            )}
-          /> */}
         </View>
       </View>
 
@@ -140,10 +116,5 @@ const styles = StyleSheet.create({
   },
   container: {
     flexDirection: "row",
-  },
-  col: {
-    // borderWidth: 2,
-    // borderColor: "blue",
-    marginHorizontal: 10,
   },
 });

@@ -19,11 +19,6 @@ const AddedImagesList = ({ data, press }) => {
         columnWrapperStyle={styles.col}
         renderItem={({ item }) => (
           <TouchableWithoutFeedback
-            // onPress={() => {
-            //   setDeleteUrl(item);
-            //   setModalVisibility(true);
-            // }}
-
             onPress={() => {
               press(item);
             }}
@@ -45,7 +40,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     borderRadius: 15,
   },
-  cl: {
+  col: {
     marginHorizontal: 10,
   },
 });
