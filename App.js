@@ -37,68 +37,34 @@ import ListEditScreen from "./app/screens/ListEditScreen";
 import PicImages from "./app/components/PicImages";
 // import LoginScreen from "./app/screens/LoginScreen";
 
-export default function App() {
-  const Categories = [
-    {
-      label: "Furniture",
-      value: 1,
-      iconName: "table-furniture",
-      iconBgColor: "#ea686a",
-    },
-    {
-      label: "Cars",
-      value: 2,
-      iconName: "car",
-      iconBgColor: "#f19c57",
-    },
-    {
-      label: "Camers",
-      value: 3,
-      iconName: "camera",
-      iconBgColor: "#fad355",
-    },
-    {
-      label: "Clothing",
-      value: 4,
-      iconName: "shoe-heel",
-      iconBgColor: "#63c9bb",
-    },
-    {
-      label: "Games",
-      value: 5,
-      iconName: "gamepad-variant",
-      iconBgColor: "#6cdb8b",
-    },
-    {
-      label: "Sports",
-      value: 6,
-      iconName: "football",
-      iconBgColor: "#62aaeb",
-    },
-    {
-      label: "Movies & Music",
-      value: 7,
-      iconName: "headphones",
-      iconBgColor: "#547de3",
-    },
-    {
-      label: "Books",
-      value: 8,
-      iconName: "book-open-variant",
-      iconBgColor: "#547de3",
-    },
-    {
-      label: "Other",
-      value: 9,
-      iconName: "more",
-      iconBgColor: "#7d8ca5",
-    },
-  ];
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
 
+export default function App() {
+  const tweet = () => (
+    <View>
+      <Text>Tweet</Text>
+    </View>
+  );
+
+  const tweetDetails = () => (
+    <View>
+      <Text>tweet details</Text>
+    </View>
+  );
+  const Stack = createStackNavigator(); //this returns the object
+
+  const StackNavigator = () => (
+    <Stack.Navigator>
+      <Stack.Screen name="Tweet Details" component={tweetDetails} />
+      <Stack.Screen name="Tweets" component={tweet} />
+    </Stack.Navigator>
+  );
   return (
     <View style={styles.container}>
-      {/* <PicImages /> */}
-      <ListEditScreen />
+      <NavigationContainer>
+        <StackNavigator />
+      </NavigationContainer>
     </View>
   );
 }
