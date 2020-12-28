@@ -10,6 +10,7 @@ import PicImages from "../components/PicImages";
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().label("Title"),
   price: Yup.number().required().label("Price"),
+  Category: Yup.string().required().label("Category"),
   description: Yup.string().required().label("Description"),
 });
 
@@ -73,7 +74,13 @@ const ListEditScreen = () => {
   return (
     <View style={styles.container}>
       <Formik
-        initialValues={{ title: "", price: "", Category: "", description: "" }}
+        initialValues={{
+          images: "",
+          title: "",
+          price: "",
+          Category: "",
+          description: "",
+        }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
@@ -86,7 +93,9 @@ const ListEditScreen = () => {
           setFieldValue,
         }) => (
           <>
-            <PicImages />
+            <PicImages
+              selectedImages={(item) => setFieldValue("images", item)}
+            />
             <AppTextInput
               placeholder="Title"
               onBlur={() => {
@@ -138,19 +147,6 @@ const ListEditScreen = () => {
           </>
         )}
       </Formik>
-
-      {/* <AppTextInput placeholder="Title" />
-      <AppTextInput placeholder="Price" />
-      <AppPicker item={Categories} />
-      <AppTextInput placeholder="Description" />
-      <AppButton
-        title="POST"
-        onPress={() => {
-          console.log("hi");
-        }}
-        color="#00a95c"
-        txtColor="white"
-      /> */}
     </View>
   );
 };

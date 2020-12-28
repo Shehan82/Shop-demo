@@ -13,7 +13,7 @@ import * as ImagePicker from "expo-image-picker";
 import AddImageIcon from "./AddImageIcon";
 import AddedImagesList from "./AddedImagesList";
 import PicImagesModal from "./PicImagesModal";
-const PicImages = () => {
+const PicImages = ({ selectedImages }) => {
   const [modalVisibility, setModalVisibility] = useState(false);
   const [data, setdata] = useState([]);
   const [deleteUrl, setDeleteUrl] = useState("");
@@ -37,6 +37,7 @@ const PicImages = () => {
     } else {
       setImageState(false);
     }
+    selectedImages(data);
   }, [data]);
 
   const openLibrary = async () => {
