@@ -17,8 +17,8 @@ export default AddImageIcon;
 
 const styles = StyleSheet.create({
   iconContainer: {
-    width: 80,
-    height: 80,
+    width: 75,
+    height: 75,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "lightgrey",

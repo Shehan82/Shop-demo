@@ -66,7 +66,7 @@ const PicImages = ({ selectedImages }) => {
   };
 
   return (
-    <View>
+    <View style={{ marginBottom: 10 }}>
       <View style={styles.container}>
         <AddImageIcon disable={imageState} onPress={openLibrary} />
 
@@ -87,5 +87,6 @@ export default PicImages;
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
+    width: "100%",
   },
 });

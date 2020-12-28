@@ -35,8 +35,8 @@ export default AddedImagesList;
 
 const styles = StyleSheet.create({
   img: {
-    width: 80,
-    height: 80,
+    width: 75,
+    height: 75,
     marginHorizontal: 5,
     borderRadius: 15,
   },
