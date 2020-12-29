@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import Card from "../components/Card";
 
-const ListingScreen = () => {
+const ListingScreen = ({ navigation }) => {
   const data = [
     {
       id: 1,
@@ -35,6 +35,9 @@ const ListingScreen = () => {
             title={item.title}
             subTitle={"$ " + item.price}
             image={item.image}
+            onPress={() => {
+              navigation.navigate("ListingDetails", item);
+            }}
           />
         )}
         ItemSeparatorComponent={() => (

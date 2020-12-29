@@ -2,10 +2,11 @@ import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import ListItem from "../components/ListItem";
 
-const ListingDetailsScreen = () => {
+const ListingDetailsScreen = ({ route }) => {
+  const listing = route.params;
   return (
     <View>
-      <Image style={styles.img} source={require("../assets/jacket.jpg")} />
+      <Image style={styles.img} source={listing.image} />
       <View style={styles.txtContainer}>
         <Text
           style={{

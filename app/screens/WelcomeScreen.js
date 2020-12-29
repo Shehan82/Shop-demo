@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import AppButton from "../components/AppButton";
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     <ImageBackground
       style={styles.background}
@@ -25,7 +25,12 @@ const WelcomeScreen = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <AppButton title="LOGIN" />
+        <AppButton
+          title="LOGIN"
+          onPress={() => {
+            navigation.navigate("Login");
+          }}
+        />
         <AppButton title="REGISTER" color="tomato" />
       </View>
     </ImageBackground>
