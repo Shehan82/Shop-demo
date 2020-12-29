@@ -82,8 +82,9 @@ export default function App() {
   const Tab = createBottomTabNavigator();
   const TabNavigator = () => (
     <Tab.Navigator>
-      <Tab.Screen name="feed" component={StackNavigator} />
-      <Tab.Screen name="acount" component={account} />
+      <Tab.Screen name="Feed" component={ListingScreen} />
+      <Tab.Screen name="AddNew" component={ListEditScreen} />
+      <Tab.Screen name="Account" component={AccountScreen} />
     </Tab.Navigator>
   );
   return (
