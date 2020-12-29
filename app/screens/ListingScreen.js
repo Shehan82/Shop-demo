@@ -58,6 +58,5 @@ export default ListingScreen;
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    paddingBottom: 20,
   },
 });
