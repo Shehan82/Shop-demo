@@ -12,9 +12,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import ListingDetailsScreen from "../screens/ListingDetailsScreen";
 
-const Card = ({ title, subTitle, image, navigation }) => {
+const Card = ({ title, subTitle, image, navigation, onPress }) => {
   return (
-    <TouchableWithoutFeedback onPress={() => navigation.navigate("ListEdit")}>
+    <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.cardContainer}>
         <Image style={styles.img} source={image} />
         <View style={styles.txtContainer}>
