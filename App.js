@@ -42,13 +42,26 @@ import { NavigationContainer } from "@react-navigation/native";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import NavigationTheme from "./app/navigation/NavigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
+import { useEffect } from "react";
 
 export default function App() {
+  const [component, setComponent] = useState({
+    comp: <WelcomeScreen />,
+  });
+  useEffect(() => {
+    setTimeout(() => {
+      setComponent({
+        comp: <LoginScreen />,
+      });
+    }, 6000);
+  }, []);
   return (
     <View style={styles.container}>
-      <NavigationContainer theme={NavigationTheme}>
+      {/* <NavigationContainer theme={NavigationTheme}>
         <AppNavigator />
-      </NavigationContainer>
+      </NavigationContainer> */}
+
+      {component.comp}
     </View>
   );
 }
