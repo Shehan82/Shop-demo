@@ -1,12 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-const NewListingButton = () => {
+const NewListingButton = ({ onPress }) => {
   return (
-    <View style={styles.container}>
-      <MaterialCommunityIcons color="white" size={30} />
-    </View>
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.container}>
+        <MaterialCommunityIcons name="plus-circle" color="white" size={30} />
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -15,10 +17,13 @@ export default NewListingButton;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "green",
-    height: 80,
-    width: 80,
-    borderRadius: 40,
+    height: 76,
+    width: 76,
+    borderRadius: 38,
     justifyContent: "center",
     alignItems: "center",
+    bottom: 30,
+    borderWidth: 8,
+    borderColor: "white",
   },
 });
