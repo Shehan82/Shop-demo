@@ -1,31 +1,44 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 
-const Card = ({ title, subTitle, image }) => {
+import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+import ListingDetailsScreen from "../screens/ListingDetailsScreen";
+
+const Card = ({ title, subTitle, image, navigation }) => {
   return (
-    <View style={styles.cardContainer}>
-      <Image style={styles.img} source={image} />
-      <View style={styles.txtContainer}>
-        <Text
-          style={{
-            fontSize: 17,
-            fontWeight: "bold",
-          }}
-        >
-          {title}
-        </Text>
-        <Text
-          style={{
-            fontSize: 17,
-            fontWeight: "bold",
-            color: "green",
-            marginTop: 10,
-          }}
-        >
-          {subTitle}
-        </Text>
+    <TouchableWithoutFeedback onPress={() => navigation.navigate("ListEdit")}>
+      <View style={styles.cardContainer}>
+        <Image style={styles.img} source={image} />
+        <View style={styles.txtContainer}>
+          <Text
+            style={{
+              fontSize: 17,
+              fontWeight: "bold",
+            }}
+          >
+            {title}
+          </Text>
+          <Text
+            style={{
+              fontSize: 17,
+              fontWeight: "bold",
+              color: "green",
+              marginTop: 10,
+            }}
+          >
+            {subTitle}
+          </Text>
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 

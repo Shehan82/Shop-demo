@@ -35,42 +35,54 @@ import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
 import ListEditScreen from "./app/screens/ListEditScreen";
 import PicImages from "./app/components/PicImages";
-// import LoginScreen from "./app/screens/LoginScreen";
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
-  const tweet = ({ navigation }) => (
-    <View>
-      <Text>Tweet</Text>
-      <Button
-        title="View tweet"
-        onPress={() => navigation.navigate("tweetDetails", { id: 2 })}
-      />
-    </View>
-  );
+  // const tweet = ({ navigation }) => (
+  //   <View>
+  //     <Text>Tweet</Text>
+  //     <Button
+  //       title="View tweet"
+  //       onPress={() => navigation.navigate("tweetDetails", { id: 2 })}
+  //     />
+  //   </View>
+  // );
 
-  const account = ({ navigation }) => (
-    <View>
-      <Text>Account</Text>
-    </View>
-  );
+  // const account = ({ navigation }) => (
+  //   <View>
+  //     <Text>Account</Text>
+  //   </View>
+  // );
 
-  const tweetDetails = ({ navigation, route }) => (
-    <View>
-      <Text>tweet details {route.params.id}</Text>
-      <Button title="Go Back" onPress={() => navigation.navigate("tweets")} />
-    </View>
-  );
+  // const tweetDetails = ({ navigation, route }) => (
+  //   <View>
+  //     <Text>tweet details {route.params.id}</Text>
+  //     <Button title="Go Back" onPress={() => navigation.navigate("tweets")} />
+  //   </View>
+  // );
   const Stack = createStackNavigator(); //this returns the object
+
+  // const StackNavigator = () => (
+  //   <Stack.Navigator>
+  //     <Stack.Screen
+  //       name="tweets"
+  //       component={tweet}
+  //       options={{
+  //         headerStyle: { backgroundColor: "red" },
+  //       }}
+  //     />
+  //     <Stack.Screen name="tweetDetails" component={tweetDetails} />
+  //   </Stack.Navigator>
+  // );
 
   const StackNavigator = () => (
     <Stack.Navigator>
       <Stack.Screen
-        name="tweets"
-        component={tweet}
+        name="ListEdit"
+        component={ListingDetailsScreen}
         options={{
           headerStyle: { backgroundColor: "red" },
         }}
