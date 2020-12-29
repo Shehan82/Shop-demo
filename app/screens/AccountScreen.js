@@ -22,10 +22,11 @@ const data = [
       color: "white",
       bgColor: "green",
     },
+    target: "Messages",
   },
 ];
 
-const AccountScreen = () => {
+const AccountScreen = ({ navigation }) => {
   return (
     <View>
       <ListItem
@@ -42,7 +43,7 @@ const AccountScreen = () => {
             <ListItem
               title={item.title}
               onPress={() => {
-                console.log(item.title + " pressed!");
+                navigation.navigate(item.target);
               }}
               ImageComponent={
                 <Icon
