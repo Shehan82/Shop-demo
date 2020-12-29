@@ -1,13 +1,36 @@
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import Card from "../components/Card";
+import listingApi from "../api/listing";
+import axios from "../api/axios";
 
 const ListingScreen = ({ navigation }) => {
+  const [apiData, setApiData] = useState();
+
+  useEffect(() => {
+    // axios.get("/listing").then((res) => {
+    //   setApiData(res.data);
+    // });
+
+    // listingApi.getListing().then((res) => {
+    //   setApiData(res.data);
+    // });
+    loadListing();
+  }, []);
+  console.log(apiData);
+
+  const loadListing = async () => {
+    const response = await listingApi.getListing();
+    setApiData(response.data);
+  };
+
   const data = [
     {
       id: 1,
-      title: "Jaclet for sale",
+      title: "Jacket for sale",
       price: 100,
       image: require("../assets/jacket.jpg"),
     },
