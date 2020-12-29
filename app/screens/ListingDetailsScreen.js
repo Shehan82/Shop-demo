@@ -14,7 +14,7 @@ const ListingDetailsScreen = ({ route }) => {
             fontWeight: "bold",
           }}
         >
-          Jacket for sale!
+          {listing.title}
         </Text>
         <Text
           style={{
@@ -24,7 +24,7 @@ const ListingDetailsScreen = ({ route }) => {
             marginTop: 10,
           }}
         >
-          $100
+          {"$ " + listing.price}
         </Text>
       </View>
       <ListItem
