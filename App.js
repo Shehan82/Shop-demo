@@ -39,70 +39,15 @@ import PicImages from "./app/components/PicImages";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+import AuthNavigator from "./app/navigation/AuthNavigator";
+import NavigationTheme from "./app/navigation/NavigationTheme";
+import AppNavigator from "./app/navigation/AppNavigator";
 
 export default function App() {
-  // const tweet = ({ navigation }) => (
-  //   <View>
-  //     <Text>Tweet</Text>
-  //     <Button
-  //       title="View tweet"
-  //       onPress={() => navigation.navigate("tweetDetails", { id: 2 })}
-  //     />
-  //   </View>
-  // );
-
-  // const account = ({ navigation }) => (
-  //   <View>
-  //     <Text>Account</Text>
-  //   </View>
-  // );
-
-  // const tweetDetails = ({ navigation, route }) => (
-  //   <View>
-  //     <Text>tweet details {route.params.id}</Text>
-  //     <Button title="Go Back" onPress={() => navigation.navigate("tweets")} />
-  //   </View>
-  // );
-  const Stack = createStackNavigator(); //this returns the object
-
-  // const StackNavigator = () => (
-  //   <Stack.Navigator>
-  //     <Stack.Screen
-  //       name="tweets"
-  //       component={tweet}
-  //       options={{
-  //         headerStyle: { backgroundColor: "red" },
-  //       }}
-  //     />
-  //     <Stack.Screen name="tweetDetails" component={tweetDetails} />
-  //   </Stack.Navigator>
-  // );
-
-  const StackNavigator = () => (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="ListEdit"
-        component={ListingDetailsScreen}
-        options={{
-          headerStyle: { backgroundColor: "red" },
-        }}
-      />
-      <Stack.Screen name="tweetDetails" component={tweetDetails} />
-    </Stack.Navigator>
-  );
-
-  const Tab = createBottomTabNavigator();
-  const TabNavigator = () => (
-    <Tab.Navigator>
-      <Tab.Screen name="Feed" component={ListingScreen} />
-      <Tab.Screen name="AddNew" component={ListEditScreen} />
-      <Tab.Screen name="Account" component={AccountScreen} />
-    </Tab.Navigator>
-  );
   return (
     <View style={styles.container}>
-      <NavigationContainer>
-        <TabNavigator />
+      <NavigationContainer theme={NavigationTheme}>
+        <AppNavigator />
       </NavigationContainer>
     </View>
   );
