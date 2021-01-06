@@ -13,6 +13,7 @@ import Card from "../components/Card";
 import listingApi from "../api/listing";
 import client from "../api/client";
 import axios from "../api/axios";
+import LottieView from "lottie-react-native";
 
 const ListingScreen = ({ navigation }) => {
   const [apiData, setApiData] = useState();
@@ -77,7 +78,12 @@ const ListingScreen = ({ navigation }) => {
           />
         </>
       )}
-      <ActivityIndicator animating={true} color="green" />
+      {/* <ActivityIndicator animating={true} color="green" /> */}
+      <LottieView
+        loop
+        autoPlay
+        source={require("../components/animation/loading.json")}
+      />
       <FlatList
         data={data}
         keyExtractor={(item) => item.id.toString()}
