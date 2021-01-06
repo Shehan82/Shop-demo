@@ -5,16 +5,17 @@ import { StyleSheet, Text, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import Card from "../components/Card";
 import listingApi from "../api/listing";
+import client from "../api/client";
 import axios from "../api/axios";
 
 const ListingScreen = ({ navigation }) => {
   const [apiData, setApiData] = useState();
 
   useEffect(() => {
-    axios.get("/api/listing").then((res) => {
-      // setApiData(res.data);
-      console.log(res.data);
-    });
+    // axios.get("/api/listing").then((res) => {
+    //   // setApiData(res.data);
+    //   console.log(res.data);
+    // });
 
     // listingApi.getListing().then((res) => {
     //   setApiData(res.data);
@@ -24,8 +25,9 @@ const ListingScreen = ({ navigation }) => {
   console.log(apiData);
 
   const loadListing = async () => {
-    const response = await listingApi.getListing();
-    setApiData(response.data);
+    await client.get("/listing").then((res) => {
+      console.log(res.data);
+    });
   };
 
   const data = [
