@@ -11,9 +11,10 @@ const ListingScreen = ({ navigation }) => {
   const [apiData, setApiData] = useState();
 
   useEffect(() => {
-    // axios.get("/listing").then((res) => {
-    //   setApiData(res.data);
-    // });
+    axios.get("/api/listing").then((res) => {
+      // setApiData(res.data);
+      console.log(res.data);
+    });
 
     // listingApi.getListing().then((res) => {
     //   setApiData(res.data);

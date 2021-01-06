@@ -57,11 +57,11 @@ export default function App() {
   }, []);
   return (
     <View style={styles.container}>
-      {/* <NavigationContainer theme={NavigationTheme}>
+      <NavigationContainer theme={NavigationTheme}>
         <AppNavigator />
-      </NavigationContainer> */}
+      </NavigationContainer>
 
-      {component.comp}
+      {/* {component.comp} */}
     </View>
   );
 }
