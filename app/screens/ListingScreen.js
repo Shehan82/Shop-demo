@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import Card from "../components/Card";
 import listingApi from "../api/listing";
@@ -10,6 +10,7 @@ import axios from "../api/axios";
 
 const ListingScreen = ({ navigation }) => {
   const [apiData, setApiData] = useState();
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     // axios.get("/api/listing").then((res) => {
@@ -26,7 +27,12 @@ const ListingScreen = ({ navigation }) => {
 
   const loadListing = async () => {
     await client.get("/listing").then((res) => {
-      console.log(res.data);
+      if (!res.ok) {
+        return setError(true);
+      } else {
+        setError(false);
+        console.log(res.data);
+      }
     });
   };
 
@@ -53,6 +59,17 @@ const ListingScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      {error && (
+        <>
+          <Text>There is a error</Text>
+          <Button
+            title="reload"
+            onPress={() => {
+              loadListing();
+            }}
+          />
+        </>
+      )}
       <FlatList
         data={data}
         keyExtractor={(item) => item.id.toString()}
