@@ -1,7 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  Button,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import Card from "../components/Card";
 import listingApi from "../api/listing";
@@ -11,6 +17,7 @@ import axios from "../api/axios";
 const ListingScreen = ({ navigation }) => {
   const [apiData, setApiData] = useState();
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     // axios.get("/api/listing").then((res) => {
@@ -70,6 +77,7 @@ const ListingScreen = ({ navigation }) => {
           />
         </>
       )}
+      <ActivityIndicator animating={true} color="green" />
       <FlatList
         data={data}
         keyExtractor={(item) => item.id.toString()}
