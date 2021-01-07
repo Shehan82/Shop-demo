@@ -31,7 +31,7 @@ const ListingScreen = ({ navigation }) => {
     // });
     loadListing();
   }, []);
-  console.log(apiData);
+  // console.log(apiData);
 
   const loadListing = async () => {
     await client.get("/listing").then((res) => {
@@ -79,11 +79,11 @@ const ListingScreen = ({ navigation }) => {
         </>
       )}
       {/* <ActivityIndicator animating={true} color="green" /> */}
-      <LottieView
+      {/* <LottieView
         loop
         autoPlay
         source={require("../components/animation/loading.json")}
-      />
+      /> */}
       <FlatList
         data={data}
         keyExtractor={(item) => item.id.toString()}
