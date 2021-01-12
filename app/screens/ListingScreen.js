@@ -21,17 +21,8 @@ const ListingScreen = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // axios.get("/api/listing").then((res) => {
-    //   // setApiData(res.data);
-    //   console.log(res.data);
-    // });
-
-    // listingApi.getListing().then((res) => {
-    //   setApiData(res.data);
-    // });
     loadListing();
   }, []);
-  // console.log(apiData);
 
   const loadListing = async () => {
     await client.get("/listing").then((res) => {
@@ -78,12 +69,7 @@ const ListingScreen = ({ navigation }) => {
           />
         </>
       )}
-      {/* <ActivityIndicator animating={true} color="green" /> */}
-      {/* <LottieView
-        loop
-        autoPlay
-        source={require("../components/animation/loading.json")}
-      /> */}
+
       <FlatList
         data={data}
         keyExtractor={(item) => item.id.toString()}
